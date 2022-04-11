@@ -22,7 +22,7 @@ describe('File upload and download tests', () => {
         cy.get('[data-bs-target="#modalArchive"]').click()
         cy.contains('Tar').invoke('attr', 'href').then(downloadLink => {
             cy.log(downloadLink)
-            let dl="https://filebin.net/"+downloadLink
+            let dl="https://filebin.net"+downloadLink
             cy.downloadFile(dl, 'mydownloads/tarFiles', 'downloadedFromCypress.tar')
             cy.readFile('mydownloads/tarFiles/downloadedFromCypress.tar')
         })
